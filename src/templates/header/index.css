@@ -1,0 +1,15 @@
+.header_container{
+    @apply relative flex mb-14
+}
+
+.navbar{
+    @apply fixed flex w-full px-2 md:px-4 text-white justify-between items-center content-center shadow-md
+}
+
+.nav_logo_container{
+    @apply flex justify-center items-center content-center px-1 py-1
+}
+
+.nav_container{
+    @apply flex justify-items-end items-center content-center space-x-2
+}

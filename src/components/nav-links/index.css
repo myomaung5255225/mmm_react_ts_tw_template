@@ -1,0 +1,6 @@
+.nav_link_button{
+    @apply px-2 py-2 bg-gray-600 rounded-md hover:bg-gray-900
+}
+.nav_link_text{
+    @apply text-sm uppercase text-white
+}
