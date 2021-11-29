@@ -1,16 +1,33 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-import { HomePage, PageNotFound } from "../pages";
+import React, { useCallback, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { PageNotFound } from '../pages/404'
+import { AuthPage } from '../pages/Auth'
+import { DashboardPage } from '../pages/Dashbaord'
+import { RootState } from '../store'
+import { fetchUsrData } from '../store/Reducers/auth'
 
+export const RootRoute: React.FC = () => {
+  const { isAuth } = useSelector((state: RootState) => state.auth)
+  const dispatch = useDispatch()
+  const stateDisFn = useCallback(() => {
+    dispatch(fetchUsrData())
+  }, [dispatch])
+  useEffect(() => {
+    stateDisFn()
+  }, [stateDisFn])
+  return (
+    <BrowserRouter>
+      <Switch>
+        {isAuth ? (
+          <Route path='/dashboard' component={DashboardPage} />
+        ) : (
+          <Route path='/' exact component={AuthPage} />
+        )}
 
-export const Routes: React.FC = () => {
-    return (
-        <Router>
-            <Switch>
-                <Route exact path='/' component={HomePage} />
-                <Route path='/404' component={PageNotFound} />
-                <Redirect to='/404' />
-            </Switch>
-        </Router>
-    )
+        <Route path='/404' component={PageNotFound} />
+        <Redirect to='/404' />
+      </Switch>
+    </BrowserRouter>
+  )
 }

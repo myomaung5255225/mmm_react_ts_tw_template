@@ -1,8 +1,15 @@
 import React from "react";
-import { Routes } from "./routes";
+import { Provider } from "react-redux";
+import { RootRoute } from "./routes";
+import { store } from "./store";
+import { PageWrapper } from "./templates/PageWrapper";
 
 export const App: React.FC = () => {
   return (
-    <Routes />
+  <Provider store={store}>
+     <PageWrapper>
+      <RootRoute />
+   </PageWrapper>
+  </Provider>
   )
 }

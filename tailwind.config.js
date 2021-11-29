@@ -26,10 +26,12 @@ module.exports = {
       indigo: colors.indigo,
       purple: colors.violet,
       pink: colors.pink,
-      primary: '#2b2e4a',
-      secondary: '#e84545',
-      op1: '#903749',
-      op2: '#53354a'
+      primary: '#1890ff',
+      secondary:'#747a8b',
+      warning:'#faad14',
+      success:'#52c41a',
+      danger:'#f5222d',
+     
     },
     spacing: {
       px: '1px',
@@ -270,7 +272,7 @@ module.exports = {
         '"Courier New"',
         'monospace',
       ],
-      primary: ['Nunito'],
+      primary: ['Poppins'],
       secondary: ['Nunito']
     },
     fontSize: {
